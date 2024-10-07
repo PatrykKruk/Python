@@ -1,0 +1,180 @@
+# def euklides(a,b):
+#     while a != b:
+#         if a > b:
+#             a = a - b
+#         else:
+#             b = b - a
+#     print('Najwiekszy wspolny dzielnik to', a)
+#
+# euklides(20, 10)
+# euklides(20, 1000000000)
+#
+# def euklides2(a, b):
+#     if a == b:
+#         print('Najwiekszy wspolny dzielnik to', a)
+#     if a > b:
+#         while b != 0:
+#             r = a % b
+#             a = b
+#             b = r
+#         print('Najwiekszy wspolny dzielnik to', a)
+#     else:
+#         while a != 0:
+#             r = b % a
+#             b = a
+#             a = r
+#         print('Najwiekszy wspolny dzielnik to', b)
+#
+#
+# euklides2(20, 10)
+# euklides2(20, 100000000000000000000000)
+#
+#
+# def euklides3(a,b):
+#     while b:
+#         a, b = b, a % b
+#     print('Najwiekszy wspolny dzielnik to', a)
+#
+# euklides3(20, 10)
+# euklides3(20, 100000000000000000000000)
+
+# def maxLiczba(n):
+#     max = int(input('Podaj pierwsza liczbe: '))
+#     for i in range(1, n):
+#         zmienna = int(input('Podaj kolejna liczbe: '))
+#         if zmienna > max:
+#             max = zmienna
+#     print('Maksymalna liczba ze zbioru to:', max)
+#
+# maxLiczba(3)
+
+# def maxLista(lista):
+#     max = lista[0]
+#     for i in range(len(lista)):
+#         if lista[i] > max:
+#             max = lista[i]
+#     print('Maksymalna liczba ze zbioru to:', max)
+#
+# maxLista([10,200,30,50,100])
+
+# def stworzListeOdZera(n):
+#     lista = []
+#     for i in range(n):
+#         lista.append(i)
+#         # lista.append(i+1)
+#     print('Stworzona lista:', lista, 'o dlugosci:', len(lista))
+#
+# stworzListeOdZera(10)
+
+# def pesel(numer):
+#     # numer_string = str(numer)
+#     lista = []
+#     for cyfra in numer:
+#         liczba = int(cyfra)
+#         lista.append(liczba)
+#     # print(lista)
+#     lista[0] = lista[0] * 1
+#     lista[1] = lista[1] * 3
+#     lista[2] = lista[2] * 7
+#     lista[3] = lista[3] * 9
+#     lista[4] = lista[4] * 1
+#     lista[5] = lista[5] * 3
+#     lista[6] = lista[6] * 7
+#     lista[7] = lista[7] * 9
+#     lista[8] = lista[8] * 1
+#     lista[9] = lista[9] * 3
+#     # print(lista)
+#     suma = sum(lista[0:-1])
+#     a = suma % 10
+#     b = 10 - a
+#     c = b % 10
+#     cyfra_kontrolna = lista.pop(-1)
+#     if cyfra_kontrolna == c:
+#         print('Numer pesel poprawny')
+#     else:
+#         print('Nieprawidlowa cyfra kontrolna, powinno byc:', c)
+#
+# pesel('04222654081')
+
+# def nip(numer):
+#     lista = []
+#     for cyfra in numer:
+#         liczba = int(cyfra)
+#         lista.append(liczba)
+#     lista[0] = lista[0] * 6
+#     lista[1] = lista[1] * 5
+#     lista[2] = lista[2] * 7
+#     lista[3] = lista[3] * 2
+#     lista[4] = lista[4] * 3
+#     lista[5] = lista[5] * 4
+#     lista[6] = lista[6] * 5
+#     lista[7] = lista[7] * 6
+#     lista[8] = lista[8] * 7
+#     suma = sum(lista[0:-1])
+#     a = suma % 11
+#     cyfra_kontrolna = lista.pop(-1)
+#     if cyfra_kontrolna == a:
+#         print('NIP poprawny')
+#     else:
+#         print('NIP nieprawidlowy, cyfra kontrolna wynosi:', a)
+#
+# nip('5360062589')
+
+import re
+#
+# def numerKonta(numer):
+#     numer = re.sub('\D', '', numer)
+#     # print(numer)
+#     kod_pl_iban = '252165' #PL65 P=25, L=21
+#     numer += kod_pl_iban
+#     print(numer)
+#     wynik = int(numer) % 97
+#     print(wynik)
+#     if wynik == 1:
+#         print('Numer konta prawidlowy')
+#     else:
+#         print('Numer bledny')
+#
+# numerKonta('106000760000320000057153')
+# numerKonta('44 2490 1028 3587 5000 0065 9441')
+
+# def numerKarty(numer):
+#     numer = re.sub('\D', '', numer)
+#     lista = []
+#     for i in numer:
+#         cyfra = int(i)
+#         lista.append(cyfra)
+#     lista[0] = lista[0] * 2
+#     lista[2] = lista[2] * 2
+#     lista[4] = lista[4] * 2
+#     lista[6] = lista[6] * 2
+#     lista[8] = lista[8] * 2
+#     lista[10] = lista[10] * 2
+#     suma = sum(lista)
+#     wynik = suma % 10
+#     if wynik == 0:
+#         print('Numer karty poprawny')
+#     else:
+#         print('Numer bledny')
+# numerKarty('1234 5678 1234 5678')
+#
+# def numerKarty(numer):
+#     numer = re.sub('\D', '', numer)
+#     lista = []
+#     for i in numer:
+#         cyfra = int(i)
+#         lista.append(cyfra)
+#     licznik = 6
+#     indeks = 0
+#     while licznik > 0:
+#         lista[indeks] = lista[indeks] * 2
+#         # indeks = indeks + 2
+#         # licznik = licznik - 1
+#         indeks += 2
+#         licznik -= 1
+#     suma = sum(lista)
+#     wynik = suma % 10
+#     if wynik == 0:
+#         print('Numer karty poprawny')
+#     else:
+#         print('Numer bledny')
